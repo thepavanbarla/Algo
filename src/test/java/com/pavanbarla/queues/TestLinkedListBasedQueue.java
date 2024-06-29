@@ -6,14 +6,14 @@ import static com.pavanbarla.queues.Constants.EMPTY_QUEUE_ERROR_MESSAGE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class TestStackBasedQueue {
+public class TestLinkedListBasedQueue {
 
     /** Not really testing the individual methods but
      *  the queue implementation in a single test */
     @Test
     public void test(){
 
-        Queue<Integer> queue = new StackBasedQueue<>();
+        Queue<Integer> queue = new LinkedListBasedQueue<>();
 
         queue.enqueue(10);
         queue.enqueue(20);
@@ -37,6 +37,10 @@ public class TestStackBasedQueue {
                 = assertThrows(RuntimeException.class, () -> queue.dequeue());
 
         assertEquals(EMPTY_QUEUE_ERROR_MESSAGE, exceptionThrown.getMessage());
+
+        queue.enqueue(50);
+        int oneMoreItemFromQueue = queue.dequeue();
+        assertEquals(50, oneMoreItemFromQueue);
     }
 
 }

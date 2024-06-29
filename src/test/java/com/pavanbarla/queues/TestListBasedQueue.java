@@ -14,7 +14,7 @@ public class TestListBasedQueue {
     @Test
     public void test(){
 
-        ListBasedQueue<Integer> queue = new ListBasedQueue<>();
+        Queue<Integer> queue = new ListBasedQueue<>();
 
         queue.enqueue(10);
         queue.enqueue(20);
