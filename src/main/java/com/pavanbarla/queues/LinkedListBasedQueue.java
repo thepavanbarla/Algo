@@ -8,7 +8,6 @@ public class LinkedListBasedQueue<T> implements Queue<T> {
 
     Node<T> head = null;
     Node<T> tail = null;
-    private int numberOfItems = 0;
 
     @Override
     public void enqueue(T item) {
@@ -20,16 +19,14 @@ public class LinkedListBasedQueue<T> implements Queue<T> {
             tail.setNext(newNode);
             tail = newNode;
         }
-        numberOfItems++;
     }
 
     @Override
     public T dequeue() {
-        if(numberOfItems == 0)
+        if(head == null)
             throw new RuntimeException(EMPTY_QUEUE_ERROR_MESSAGE);
         T item = head.getValue();
         head = head.getNext();
-        numberOfItems--;
         return item;
     }
 
