@@ -6,10 +6,10 @@ import static com.pavanbarla.queues.Constants.EMPTY_QUEUE_ERROR_MESSAGE;
 
 public class StackBasedQueue<T> implements Queue<T> {
 
-    private Stack<T> baseStack;
-    private Stack<T> reverseStack;
+    private final Stack<T> baseStack;
+    private final Stack<T> reverseStack;
 
-    public StackBasedQueue(){
+    public StackBasedQueue() {
         baseStack = new Stack<>();
         reverseStack = new Stack<>();
     }
@@ -21,16 +21,16 @@ public class StackBasedQueue<T> implements Queue<T> {
 
     @Override
     public T dequeue() {
-        if(reverseStack.empty()) {
+        if (reverseStack.empty()) {
             moveAllItemsToReverseStack();
-            if(reverseStack.empty())
+            if (reverseStack.empty())
                 throw new RuntimeException(EMPTY_QUEUE_ERROR_MESSAGE);
         }
         return reverseStack.pop();
     }
 
     private void moveAllItemsToReverseStack() {
-        while(!baseStack.empty()){
+        while (!baseStack.empty()) {
             reverseStack.push(baseStack.pop());
         }
     }

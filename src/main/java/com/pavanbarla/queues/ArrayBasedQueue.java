@@ -6,11 +6,11 @@ import static com.pavanbarla.queues.Constants.EMPTY_QUEUE_ERROR_MESSAGE;
 
 public class ArrayBasedQueue<T> implements Queue<T> {
 
+    private final Class<T> itemType;
     private T[] array;
     private int firstItemIndex = 0;
     private int lastItemIndex = 0;
     private int numberOfElements = 0;
-    private Class<T> itemType;
 
     public ArrayBasedQueue(Class<T> type, int initialSize) {
         itemType = type;
@@ -31,7 +31,7 @@ public class ArrayBasedQueue<T> implements Queue<T> {
 
     @Override
     public T dequeue() {
-        if(numberOfElements == 0)
+        if (numberOfElements == 0)
             throw new RuntimeException(EMPTY_QUEUE_ERROR_MESSAGE);
 
         T item = array[firstItemIndex++];
@@ -54,7 +54,8 @@ public class ArrayBasedQueue<T> implements Queue<T> {
 
     /**
      * Used just to test array size doubling
-      * @return size of the array
+     *
+     * @return size of the array
      */
     public int getArraySize() {
         return array.length;

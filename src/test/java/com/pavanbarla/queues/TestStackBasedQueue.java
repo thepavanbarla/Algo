@@ -8,10 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TestStackBasedQueue {
 
-    /** Not really testing the individual methods but
-     *  the queue implementation in a single test */
+    /**
+     * Not really testing the individual methods but
+     * the queue implementation in a single test
+     */
     @Test
-    public void test(){
+    public void test() {
 
         Queue<Integer> queue = new StackBasedQueue<>();
 
@@ -34,7 +36,7 @@ public class TestStackBasedQueue {
         assertEquals(40, lastItemFromQueue);
 
         Exception exceptionThrown
-                = assertThrows(RuntimeException.class, () -> queue.dequeue());
+                = assertThrows(RuntimeException.class, queue::dequeue);
 
         assertEquals(EMPTY_QUEUE_ERROR_MESSAGE, exceptionThrown.getMessage());
     }

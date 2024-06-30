@@ -11,7 +11,7 @@ public class LinkedListBasedQueue<T> implements Queue<T> {
 
     @Override
     public void enqueue(T item) {
-        if(head == null){
+        if (head == null) {
             head = new Node<>(item);
             tail = head;
         } else {
@@ -23,7 +23,7 @@ public class LinkedListBasedQueue<T> implements Queue<T> {
 
     @Override
     public T dequeue() {
-        if(head == null)
+        if (head == null)
             throw new RuntimeException(EMPTY_QUEUE_ERROR_MESSAGE);
         T item = head.getValue();
         head = head.getNext();

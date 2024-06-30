@@ -4,13 +4,13 @@ public class Node<T> {
     T value;
     Node next;
 
-    public Node(T val){
+    public Node(T val) {
         this.value = val;
     }
 
-    public Node(T val, Node nextNode){
+    public Node(T val, Node nextNode) {
         this.value = val;
-        this.next  = nextNode;
+        this.next = nextNode;
     }
 
     public T getValue() {
